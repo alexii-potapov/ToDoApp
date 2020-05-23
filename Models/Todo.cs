@@ -15,6 +15,7 @@ namespace ToDoApp.Models
         public bool Archive { get; set; }
         public bool Deleted { get; set; }
         public Group Group { get; set; }
+        public User Owner { get; set; }
 
     }
 
@@ -22,6 +23,14 @@ namespace ToDoApp.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public User Owner { get; set; }
+    }
+
+    public class User
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string About { get; set; }
     }
 
     public enum Fibonachi : ushort
