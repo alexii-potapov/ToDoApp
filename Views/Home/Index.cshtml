@@ -16,6 +16,7 @@
 			<td>Id</td>
 			<td>Name</td>
 			<td>Description</td>
+			<td>Complexity</td>
 			<td>Date</td>
 			<td>Group</td>
 			<td>Owner</td>
@@ -23,12 +24,13 @@
 		@foreach(var todo in Model)
 		{
 	<tr>
-		<td>@todo.Id</td>
+		<td>@todo.TodoId</td>
 		<td>@todo.Name</td>
 		<td>@todo.Description</td>
+		<td>@todo.Complexity</td>
 		<td>@todo.Duedate</td>
-		@*<td>@todo.Group.Name</td>
-		<td>@todo.Owner.Name</td>*@
+		<td>@todo.Group.Name</td>
+		<td>@todo.User.Name</td>
 	</tr>
 		}
 	</table>>

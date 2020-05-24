@@ -17,6 +17,7 @@ namespace ToDoApp.Models
 						Name = "Aleksey",
 						About = "Master"
 					});
+				context.SaveChanges();
 			}
 			User user = context.Users.First();
 
@@ -26,8 +27,9 @@ namespace ToDoApp.Models
 					new Group
 					{
 						Name = "Main group",
-						Owner = user
+						User = user
 					});
+				context.SaveChanges();
 			}
 			Group group = context.Groups.First();
 
@@ -38,7 +40,8 @@ namespace ToDoApp.Models
 					{
 						Name = "Create sample list",
 						Description = "Very important step to start",
-						Owner = user,
+						User = user,
+						Complexity = Fibonachi.P3,
 						Duedate = DateTime.Now,
 						Group = group
 					},
@@ -46,7 +49,8 @@ namespace ToDoApp.Models
 					{
 						Name = "Create complex list",
 						Description = "Optional task",
-						Owner = user,
+						User = user,
+						Complexity = Fibonachi.P2,
 						Duedate = DateTime.Now,
 						Group = group
 					}
