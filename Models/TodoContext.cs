@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace ToDoApp.Models
 {
-    public class TodoContext : DbContext
-    {
-        public DbSet<Todo> Todoes { get; set; }
-        public DbSet<Group> Groups { get; set; }
-        public DbSet<User> Users { get; set; }
+	public class TodoContext : DbContext
+	{
+		public DbSet<Todo> Todoes { get; set; }
+		public DbSet<Group> Groups { get; set; }
+		public DbSet<User> Users { get; set; }
 
-        public TodoContext(DbContextOptions<TodoContext> options)
-            : base(options)
-        {
-            Database.EnsureCreated();
-        }
-    }
+		public TodoContext(DbContextOptions<TodoContext> options)
+			: base(options)
+		{
+			Database.EnsureCreated();
+		}
+	}
 }
