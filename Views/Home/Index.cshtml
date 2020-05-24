@@ -1,18 +1,36 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-    Layout = null;
+﻿@model IEnumerable<ToDoApp.Models.Todo>
+@{	
+	Layout = null;
 }
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>ToDo Application</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width"/>
+	<title>ToDo Application</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
 </head>
 <body>
-    <h2>Firtst List</h2>
-    <h3>Second Task</h3>
+	<h2>Todo</h2>
+	<table>
+		<tr>
+			<td>Id</td>
+			<td>Name</td>
+			<td>Description</td>
+			<td>Date</td>
+			<td>Group</td>
+			<td>Owner</td>
+		</tr>
+		@foreach(var todo in Model)
+		{
+	<tr>
+		<td>@todo.Id</td>
+		<td>@todo.Name</td>
+		<td>@todo.Description</td>
+		<td>@todo.Duedate</td>
+		<td>@todo.Group.Name</td>
+		<td>@todo.Owner.Name</td>
+	</tr>
+		}
+	</table>>
 </body>
 </html>

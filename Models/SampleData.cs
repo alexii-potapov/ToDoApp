@@ -1,0 +1,59 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ToDoApp.Models
+{
+	public class SampleData
+	{
+		public static void Initialize(TodoContext context)
+		{
+			if (!context.Users.Any())
+			{
+				context.Users.Add(
+					new User
+					{
+						Name = "Aleksey",
+						About = "Master"
+					});
+			}
+			User user = context.Users.First();
+
+			if (!context.Groups.Any())
+			{
+				context.Groups.Add(
+					new Group
+					{
+						Name = "Main group",
+						Owner = user
+					});
+			}
+			Group group = context.Groups.First();
+
+			if (!context.Todoes.Any())
+			{
+				context.Todoes.AddRange(
+					new Todo
+					{
+						Name = "Create sample list",
+						Description = "Very important step to start",
+						Owner = user,
+						Duedate = DateTime.Now,
+						Group = group
+					},
+					new Todo
+					{
+						Name = "Create complex list",
+						Description = "Optional task",
+						Owner = user,
+						Duedate = DateTime.Now,
+						Group = group
+					}
+					);
+
+				context.SaveChanges();
+			}
+		}
+	}
+}
